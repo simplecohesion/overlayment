@@ -127,6 +127,12 @@ class _OverExpanderState<T> extends State<OverExpander<T>> {
     super.didUpdateWidget(oldWidget);
   }
 
+  @override
+  void deactivate() {
+    Overlayment.dismissName(name);
+    super.deactivate();
+  }
+
   void _checkExpand() {
     if (widget.expand && !_expanded) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
